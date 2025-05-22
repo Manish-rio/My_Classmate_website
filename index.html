@@ -22,14 +22,69 @@
                         <th>GPA</th>
                     </tr>
                 </thead>
-                <tbody>
-                    <!-- Rows will be dynamically generated -->
+                <tbody id="course-body">
+                    <!-- Sample Pre-filled Rows -->
+                    <tr>
+                        <td>1</td>
+                        <td>MA101</td>
+                        <td>Mathematics I</td>
+                        <td>1</td>
+                        <td>4</td>
+                        <td>A</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>PH101</td>
+                        <td>Physics</td>
+                        <td>1</td>
+                        <td>3</td>
+                        <td>B+</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>CS101</td>
+                        <td>Programming</td>
+                        <td>1</td>
+                        <td>3</td>
+                        <td>A+</td>
+                        <td></td>
+                    </tr>
                 </tbody>
             </table>
         </div>
         <button onclick="calculateCGPA()">Calculate CGPA</button>
         <h2 id="cgpa-display">CGPA: --</h2>
     </div>
-    <script src="script.js"></script>
+    <script>
+        const gradeMap = {
+            "O": 10,
+            "A+": 9,
+            "A": 8,
+            "B+": 7,
+            "B": 6,
+            "RA": 0
+        };
+
+        function calculateCGPA() {
+            const rows = document.querySelectorAll('#course-body tr');
+            let totalCredits = 0;
+            let totalPoints = 0;
+
+            rows.forEach(row => {
+                const credits = parseInt(row.cells[4].textContent);
+                const grade = row.cells[5].textContent.trim();
+                const point = gradeMap[grade] || 0;
+                row.cells[6].textContent = point.toFixed(2);
+
+                totalCredits += credits;
+                totalPoints += credits * point;
+            });
+
+            const cgpa = totalPoints / totalCredits;
+            document.getElementById("cgpa-display").textContent = `CGPA: ${cgpa.toFixed(2)}`;
+        }
+    </script>
 </body>
 </html>
