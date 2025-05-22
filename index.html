@@ -1,92 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pre-filled Course GPA & CGPA Calculator</title>
-    <link rel="stylesheet" href="style.css">
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f9;
-            margin: 0;
-            padding: 0;
-        }
-
-        .container {
-            max-width: 1000px;
-            margin: 50px auto;
-            background: white;
-            padding: 30px;
-            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
-            border-radius: 12px;
-        }
-
-        h1, h2 {
-            text-align: center;
-            color: #333;
-        }
-
-        button {
-            padding: 12px 20px;
-            background-color: #007bff;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            display: block;
-            margin: 20px auto 0;
-        }
-
-        button:hover {
-            background-color: #0056b3;
-        }
-
-        #course-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 20px;
-        }
-
-        #course-table th, #course-table td {
-            border: 1px solid #ccc;
-            padding: 12px;
-            text-align: center;
-        }
-
-        #course-table th {
-            background-color: #f8f8f8;
-            font-weight: bold;
-        }
-
-        select {
-            padding: 5px;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GPA & CGPA Calculator</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    <div class="container">
-        <h1>GPA & CGPA Calculator</h1>
-        <div id="course-section">
-            <table id="course-table">
-                <thead>
-                    <tr>
-                        <th>S.No</th>
-                        <th>Course Code</th>
-                        <th>Course Title</th>
-                        <th>Semester</th>
-                        <th>Credits</th>
-                        <th>Grade</th>
-                        <th>GPA</th>
-                    </tr>
-                </thead>
-                <tbody id="course-body">
-                    <!-- Data rows inserted via JavaScript -->
-                </tbody>
-            </table>
-        </div>
-        <button onclick="calculateCGPA()">Calculate CGPA</button>
-        <h2 id="cgpa-display">CGPA: --</h2>
-    </div>
+  <h1>GPA & CGPA Calculator</h1>
+  <div id="courseContainer"></div>
+  <button class="calculate-btn" onclick="calculateCGPA()">Calculate CGPA</button>
+  <p class="result" id="result"></p>
+
+  <script src="script.js"></script>
 </body>
 </html>
