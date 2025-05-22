@@ -1,17 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>GPA & CGPA Calculator</title>
-  <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pre-filled Course GPA & CGPA Calculator</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>GPA & CGPA Calculator</h1>
-  <div id="courseContainer"></div>
-  <button class="calculate-btn" onclick="calculateCGPA()">Calculate CGPA</button>
-  <p class="result" id="result"></p>
-
-  <script src="script.js"></script>
+    <div class="container">
+        <h1>GPA & CGPA Calculator</h1>
+        <div id="course-section">
+            <table id="course-table">
+                <thead>
+                    <tr>
+                        <th>S.No</th>
+                        <th>Course Code</th>
+                        <th>Course Title</th>
+                        <th>Semester</th>
+                        <th>Credits</th>
+                        <th>Grade</th>
+                        <th>GPA</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Rows will be dynamically generated -->
+                </tbody>
+            </table>
+        </div>
+        <button onclick="calculateCGPA()">Calculate CGPA</button>
+        <h2 id="cgpa-display">CGPA: --</h2>
+    </div>
+    <script src="Script.js"></script>
 </body>
 </html>
