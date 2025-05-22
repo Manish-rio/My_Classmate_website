@@ -1,5 +1,5 @@
 // Pre-filled course data
-const courses = [
+const courseList = [
   { semester: 1, code: "19P101", course: "CALCULUS AND ITS APPLICATIONS", credit: 4 },
   { semester: 1, code: "19G105", course: "ENGLISH LANGUAGE PROFICIENCY", credit: 3 },
   { semester: 1, code: "19P102", course: "PHYSICS", credit: 3 },
@@ -69,70 +69,76 @@ const courses = [
   { semester: 8, code: "19O004", course: "SUSTAINABLE DEVELOPMENT GOALS FOR MANUFACTURING INDUSTRIES", credit: 3 }
 ];
 
-// Populate the table with pre-filled data
+const gradePoints = {
+  'O': 10,
+  'A+': 9,
+  'A': 8,
+  'B+': 7,
+  'B': 6,
+  'RA': 0,
+};
 
-function populateCourses() {
-  const tableBody = document.querySelector("#course-table tbody");
-  courses.forEach((course, index) => {
-    const row = document.createElement("tr");
-    row.innerHTML = `
-      <td>${index + 1}</td>
-      <td>${course.code}</td>
-      <td>${course.title}</td>
-      <td>${course.semester || "--"}</td>
-      <td>${course.credits}</td>
-      <td>
-        <select>
-          <option value="">Select Grade</option>
-          <option value="10">O</option>
-          <option value="9">A+</option>
-          <option value="8">A</option>
-          <option value="7">B+</option>
-          <option value="6">B</option>
-          <option value="5">C</option>
-          <option value="0">N/A</option>
-        </select>
-      </td>
-      <td class="gpa-cell">--</td>
+function createCourseTable() {
+  const container = document.getElementById('courseContainer');
+  const semesters = [...new Set(courseList.map(course => course.semester))];
+  semesters.forEach(sem => {
+    const semCourses = courseList.filter(c => c.semester === sem);
+    const section = document.createElement('div');
+    section.className = 'semester';
+
+    const heading = document.createElement('h3');
+    heading.textContent = `Semester ${sem}`;
+    section.appendChild(heading);
+
+    const table = document.createElement('table');
+    table.className = 'course-table';
+    table.innerHTML = `
+      <tr>
+        <th>Code</th>
+        <th>Course</th>
+        <th>Credit</th>
+        <th>Grade</th>
+      </tr>
     `;
-    tableBody.appendChild(row);
+    semCourses.forEach(course => {
+      const row = document.createElement('tr');
+      row.innerHTML = `
+        <td>${course.code}</td>
+        <td>${course.course}</td>
+        <td>${course.credit}</td>
+        <td>
+          <select data-credit="${course.credit}">
+            <option value="O">O</option>
+            <option value="A+">A+</option>
+            <option value="A">A</option>
+            <option value="B+">B+</option>
+            <option value="B">B</option>
+            <option value="RA">RA</option>
+          </select>
+        </td>
+      `;
+      table.appendChild(row);
+    });
+    section.appendChild(table);
+    container.appendChild(section);
   });
 }
 
-// Calculate CGPA based on user input
 function calculateCGPA() {
-  const rows = document.querySelectorAll("#course-table tbody tr");
+  const selects = document.querySelectorAll('select');
   let totalCredits = 0;
   let totalPoints = 0;
 
-  rows.forEach(row => {
-    const credits = parseInt(row.children[4].textContent); // Credits column
-    const gradeValue = row.querySelector("td:nth-child(6) select").value; // Grade select
-
-    if (gradeValue === "" || gradeValue === "0") {
-      row.querySelector(".gpa-cell").textContent = "N/A"; // Set GPA cell to N/A for invalid grade
-      return; // Skip this course in calculations
-    }
-
-    const grade = parseInt(gradeValue);
-    const points = credits * grade; // Grade points
-
-    totalCredits += credits; // Add to total credits
-    totalPoints += points; // Add to total grade points
-
-    row.querySelector(".gpa-cell").textContent = (points / credits).toFixed(2); // Update GPA cell
+  selects.forEach(select => {
+    const credit = parseInt(select.getAttribute('data-credit'));
+    const grade = select.value;
+    const point = gradePoints[grade];
+    totalCredits += credit;
+    totalPoints += point * credit;
   });
 
-  // Ensure total credits is not zero to avoid division by zero
-  if (totalCredits === 0) {
-    document.getElementById("cgpa-display").textContent = "CGPA: N/A (No valid grades selected)";
-    return;
-  }
-
-  // Calculate CGPA
-  const cgpa = totalPoints / totalCredits;
-  document.getElementById("cgpa-display").textContent = `CGPA: ${cgpa.toFixed(2)}`;
+  const cgpa = (totalPoints / totalCredits).toFixed(2);
+  document.getElementById('result').textContent = `CGPA: ${cgpa}`;
 }
 
-// Populate table on page load
-document.addEventListener("DOMContentLoaded", populateCourses);
+createCourseTable();
