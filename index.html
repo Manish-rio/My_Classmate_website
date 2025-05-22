@@ -91,15 +91,107 @@
 
     <script>
         const courses = [
-            { code: '19G105', title: 'ENGLISH LANGUAGE PROFICIENCY', sem: 1, credits: 3 },
-            { code: '19P101', title: 'CALCULUS AND ITS APPLICATIONS', sem: 1, credits: 4 },
-            { code: '19P102', title: 'PHYSICS', sem: 1, credits: 3 },
-            { code: '19P103', title: 'CHEMISTRY', sem: 1, credits: 3 },
-            { code: '19P104', title: 'PROFESSIONAL ETHICS', sem: 1, credits: 2 },
-            { code: '19P110', title: 'ENGINEERING GRAPHICS', sem: 1, credits: 2 },
-            { code: '19P211', title: 'C PROGRAMMING LABORATORY', sem: 1, credits: 2 },
-            { code: '19G001', title: 'COMMUNICATION SKILLS FOR ENGINEERS', sem: 2, credits: 2 }
-        ];
+  {
+    semester: 1,
+    courses: [
+      { code: "19P101", name: "CALCULUS AND ITS APPLICATIONS", credits: 4 },
+      { code: "19G105", name: "ENGLISH LANGUAGE PROFICIENCY", credits: 3 },
+      { code: "19P102", name: "PHYSICS", credits: 3 },
+      { code: "19P103", name: "CHEMISTRY", credits: 3 },
+      { code: "19P104", name: "PROFESSIONAL ETHICS", credits: 2 },
+      { code: "19P110", name: "ENGINEERING GRAPHICS", credits: 2 },
+      { code: "19P211", name: "C PROGRAMMING LABORATORY", credits: 2 },
+    ],
+  },
+  {
+    semester: 2,
+    courses: [
+      { code: "19G001", name: "COMMUNICATION SKILLS FOR ENGINEERS", credits: 2 },
+      { code: "19P111", name: "BASIC SCIENCES LABORATORY", credits: 2 },
+      { code: "19P112", name: "ENGINEERING PRACTICES", credits: 1 },
+      { code: "19P201", name: "COMPLEX VARIABLES AND TRANSFORMS", credits: 4 },
+      { code: "19P202", name: "MATERIALS SCIENCE", credits: 3 },
+      { code: "19P203", name: "CHEMISTRY OF ENGINEERING MATERIALS", credits: 2 },
+      { code: "19P204", name: "ENGINEERING MECHANICS", credits: 4 },
+    ],
+  },
+  {
+    semester: 3,
+    courses: [
+      { code: "19K312", name: "ENVIRONMENTAL SCIENCE", credits: 0 },
+      { code: "19O306", name: "ECONOMICS FOR ENGINEERS", credits: 3 },
+      { code: "19P205", name: "BASICS OF ELECTRICAL AND ELECTRONICS ENGINEERING", credits: 3 },
+      { code: "19P210", name: "ELECTRICAL AND ELECTRONICS ENGINEERING LABORATORY", credits: 1 },
+      { code: "19P301", name: "NUMERICAL METHODS", credits: 3 },
+      { code: "19P302", name: "ENGINEERING METALLURGY", credits: 3 },
+      { code: "19P304", name: "FLUID MECHANICS AND MACHINERY", credits: 4 },
+      { code: "19P313", name: "BUILDING COMMUNICATION SKILLS", credits: 2 },
+      { code: "19P406", name: "MACHINING TECHNOLOGY", credits: 3 },
+      { code: "19P411", name: "MACHINING TECHNOLOGY LABORATORY", credits: 1 },
+    ],
+  },
+  {
+    semester: 4,
+    courses: [
+      { code: "19P303", name: "STRENGTH OF MATERIALS", credits: 4 },
+      { code: "19P305", name: "WELDING TECHNOLOGY", credits: 3 },
+      { code: "19P310", name: "MACHINE DRAWING", credits: 2 },
+      { code: "19P311", name: "METALLURGY AND STRENGTH OF MATERIALS LABORATORY", credits: 1 },
+      { code: "19P402", name: "THERMAL SYSTEMS AND HEAT TRANSFER", credits: 4 },
+      { code: "19P410", name: "THERMAL ENGINEERING AND FLUID MACHINERY LABORATORY", credits: 1 },
+      { code: "19Q413", name: "SOFT SKILLS DEVELOPMENT", credits: 1 },
+    ],
+  },
+  {
+    semester: 5,
+    courses: [
+      { code: "19P013", name: "PLC PROGRAMMING AND APPLICATIONS", credits: 3 },
+      { code: "19P401", name: "PROBABILITY AND STATISTICS", credits: 3 },
+      { code: "19P404", name: "FOUNDRY TECHNOLOGY", credits: 3 },
+      { code: "19P405", name: "MECHANICS OF MACHINES", credits: 4 },
+      { code: "19P503", name: "MANUFACTURING METROLOGY", credits: 3 },
+      { code: "19P505", name: "APPLIED HYDRAULICS AND PNEUMATICS", credits: 3 },
+      { code: "19P511", name: "METROLOGY AND COMPUTER AIDED INSPECTION LABORATORY", credits: 2 },
+      { code: "19Q513", name: "BUSINESS AND MANAGERIAL COMMUNICATIONS", credits: 1 },
+      { code: "190412", name: "INDIAN CONSTITUTION", credits: 0 },
+    ],
+  },
+  {
+    semester: 6,
+    courses: [
+      { code: "19P009", name: "LEAN MANUFACTURING", credits: 3 },
+      { code: "19P023", name: "STATISTICAL QUALITY CONTROL", credits: 3 },
+      { code: "19P403", name: "METAL FORMING PROCESSES", credits: 3 },
+      { code: "19P501", name: "COMPUTER NUMERICAL CONTROL MACHINES", credits: 3 },
+      { code: "19P502", name: "PROCESS PLANNING AND COST ESTIMATION", credits: 3 },
+      { code: "19P504", name: "DESIGN OF MACHINE ELEMENTS", credits: 4 },
+      { code: "19P510", name: "MANUFACTURING TECHNOLOGY LABORATORY", credits: 2 },
+      { code: "19P610", name: "FLUID POWER LABORATORY", credits: 1 },
+      { code: "19Q613", name: "QUANTITATIVE AND REASONING SKILLS", credits: 1 },
+    ],
+  },
+  {
+    semester: 7,
+    courses: [
+      { code: "19P701", name: "ENVIRONMENT CONSCIOUS MANUFACTURING", credits: 2 },
+      { code: "19P702", name: "PRODUCTION AND OPERATIONAL MANAGEMENT", credits: 3 },
+      { code: "19P008", name: "MANUFACTURING OF AUTOMOTIVE COMPONENTS", credits: 3 },
+    ],
+  },
+  {
+    semester: 8,
+    courses: [
+      { code: "19P601", name: "QUANTITATIVE METHODS IN MANAGEMENT", credits: 3 },
+      { code: "19P602", name: "JIGS AND FIXTURES", credits: 3 },
+      { code: "19P603", name: "DESIGN FOR MANYFACCTURE AND ASSEMBLY", credits: 3 },
+      { code: "19P604", name: "AUTOMATION AND ROBOTICS", credits: 3 },
+      { code: "19P020", name: "SIX SIGMA", credits: 3 },
+      { code: "19P611", name: "CAD, CAM AND CAE LABORATORY", credits: 2 },
+      { code: "19P711", name: "INNOVATION PRACTICES", credits: 2 },
+      { code: "19O004", name: "SUSTAINABLE DEVELOPMENT GOALS FOR MANUFACTURING INDUSTRIES", credits: 3 },
+    ],
+  },
+];
 
         const gradePoints = {
             'O': 10,
