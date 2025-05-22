@@ -1,81 +1,44 @@
-
-
--------------------------------------
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f9;
-    margin: 0;
-    padding: 0;
+  font-family: Arial, sans-serif;
+  padding: 20px;
+  background-color: #f9f9f9;
 }
 
-.container {
-    max-width: 800px;
-    margin: 50px auto;
-    background: white;
-    padding: 20px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
+h1 {
+  text-align: center;
 }
 
-h1, h2, h3 {
-    text-align: center;
-    color: #333;
+.semester {
+  margin-bottom: 30px;
 }
 
-form {
-    display: flex;
-    flex-direction: column;
+.course-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 10px;
 }
 
-.input-group {
-    margin-bottom: 10px;
+.course-table th,
+.course-table td {
+  border: 1px solid #ccc;
+  padding: 8px;
+  text-align: left;
 }
 
-label {
-    font-weight: bold;
+.course-table th {
+  background-color: #eee;
 }
 
-input, select {
-    width: 100%;
-    padding: 8px;
-    margin-top: 5px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
+.calculate-btn {
+  padding: 10px 20px;
+  background-color: #007BFF;
+  color: white;
+  border: none;
+  cursor: pointer;
+  margin: 20px 0;
 }
 
-button {
-    padding: 10px;
-    background-color: #007bff;
-    color: White;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    margin-top: 10px;
+.result {
+  font-weight: bold;
+  font-size: 1.2em;
 }
-
-button:hover {
-    background-color: #0056b3;
-}
-
-ul {
-    list-style: none;
-    padding: 0;
-}
-
-#course-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
-}
-
-#course-table th, #course-table td {
-    border: 1px solid #ccc;
-    padding: 10px;
-    text-align: center;
-}
-
-#course-table th {
-    background-color: #f8f8f8;
-    font-weight: bold;
-}
-
